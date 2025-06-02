@@ -1,0 +1,58 @@
+name: snowflake-devops-demo
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'DDLs**'
+  workflow_dispatch:
+
+jobs:
+  deploy-snowflake-changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install schemachange
+        run: pip install schemachange
+
+      - name: Create schemachange connection config
+        run: |
+          mkdir -p ~/.snowflake
+          cat <<EOF > ~/.snowflake/connections.toml
+          [default]
+          account = "A9752755683171-ELAIT_PARTNER"
+          user = "SVA_ELAIT"
+          password = "Abcd@123456789"
+          role = "DATADEVELOPER"
+          warehouse = "COMPUTE_WH"
+          database = "DEV"
+          schema = "SNOWCONVERT"
+          EOF
+
+      - name: Debug List files in the target folder
+        run: |
+          echo "Listing files in $GITHUB_WORKSPACE/DDLs:"
+          ls -alh "$GITHUB_WORKSPACE/DDLs"
+
+      - name: Remove BOM from SQL files
+        run: |
+          find "$GITHUB_WORKSPACE/DDLs" -name "*.sql" -exec sed -i '1s/^\xEF\xBB\xBF//' {} \;
+
+
+      - name: Run schemachange
+        run: |
+          schemachange deploy \
+            --config-folder ~/.snowflake \
+            --connection-name default \
+            -f "$GITHUB_WORKSPACE/DDLs" \
+            --change-history-table DEV.SNOWCONVERT.CHANGE_HISTORY \
+            --create-change-history-table
