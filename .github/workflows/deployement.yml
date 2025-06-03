@@ -54,5 +54,5 @@ jobs:
             --config-folder ~/.snowflake \
             --connection-name default \
             -f "$GITHUB_WORKSPACE/DDLs" \
-            --change-history-table DEV.SNOWCONVERT.CHANGE_HISTORY \
+            --change-history-table ADVENTUREWORKSDW.SNOWCONVERT.CHANGE_HISTORY \
             --create-change-history-table
