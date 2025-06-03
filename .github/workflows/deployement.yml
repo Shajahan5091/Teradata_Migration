@@ -32,9 +32,9 @@ jobs:
           account = "A9752755683171-ELAIT_PARTNER"
           user = "SVA_ELAIT"
           password = "Abcd@123456789"
-          role = "DATADEVELOPER"
+          role = "SYSADMIN"
           warehouse = "COMPUTE_WH"
-          database = "DEV"
+          database = "ADVENTUREWORKSDW"
           schema = "SNOWCONVERT"
           EOF
 
