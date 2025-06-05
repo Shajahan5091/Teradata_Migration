@@ -1,0 +1,42 @@
+﻿/* <sc-table> AdventureWorksDW.DimProduct </sc-table> */
+--** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
+CREATE OR REPLACE TABLE ADVENTUREWORKSDW.SNOWCONVERT.DimProduct
+(
+     ProductKey INTEGER NOT NULL,
+     ProductAlternateKey VARCHAR(25),
+     ProductSubcategoryKey INTEGER,
+     WeightUnitMeasureCode CHAR(3),
+     SizeUnitMeasureCode CHAR(3),
+     EnglishProductName VARCHAR(50) NOT NULL,
+     SpanishProductName VARCHAR(50) NOT NULL,
+     FrenchProductName VARCHAR(50) NOT NULL,
+     StandardCost NUMBER(18,4),
+     Color VARCHAR(15) NOT NULL,
+     SafetyStockLevel SMALLINT,
+     ReorderPoint SMALLINT,
+     ListPrice NUMBER(18,4),
+     SIZE VARCHAR(50),
+     SizeRange VARCHAR(50),
+     Weight NUMBER(38, 18),
+     DaysToManufacture INTEGER,
+     ProductLine CHAR(2),
+     DealerPrice NUMBER(18,4),
+     "Class" CHAR(2),
+     STYLE CHAR(2),
+     ModelName VARCHAR(50),
+     LargePhoto BINARY /*** SSC-FDM-TD0001 - COLUMN CONVERTED FROM BLOB DATA TYPE ***/,
+     EnglishDescription VARCHAR(400),
+     FrenchDescription VARCHAR(400),
+     ChineseDescription VARCHAR(400),
+     ArabicDescription VARCHAR(400),
+     HebrewDescription VARCHAR(400),
+     ThaiDescription VARCHAR(400),
+     GermanDescription VARCHAR(400),
+     JapaneseDescription VARCHAR(400),
+     TurkishDescription VARCHAR(400),
+     StartDate DATE,
+     EndDate DATE,
+     Status VARCHAR(7),
+PRIMARY KEY ( ProductKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "06/05/2025",  "domain": "no-domain-provided" }}'
+;
