@@ -260,16 +260,18 @@ COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,
 ;
 
 --
-/* <sc-table> AdventureWorksDW.FactCurrencyRate </sc-table> */
---** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS ADVENTUREWORKSDW.SNOWCONVERT.FactCurrencyRate
+/* <sc-table> AdventureWorksDW.sample_table </sc-table> */
+CREATE TABLE IF NOT EXISTS ADVENTUREWORKSDW.SNOWCONVERT.sample_table
 (
-     CurrencyKey INTEGER NOT NULL,
-     DateKey INTEGER NOT NULL,
-     AverageRate NUMBER(38, 18) NOT NULL,
-     EndOfDayRate NUMBER(38, 18) NOT NULL,
-     "Date" DATE,
-PRIMARY KEY ( CurrencyKey ,DateKey ))
+     FinanceKey INTEGER,
+     DateKey INTEGER,
+     OrganizationKey INTEGER,
+     DepartmentGroupKey INTEGER,
+     ScenarioKey INTEGER,
+     Amount NUMBER(38, 18),
+     DepartmentGroupName VARCHAR(50),
+     ScenarioName VARCHAR(50)
+)
 COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "06/20/2025",  "domain": "no-domain-provided" }}'
 ;
 
@@ -336,21 +338,16 @@ COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,
 ;
 
 --
-/* <sc-table> AdventureWorksDW.DimAccount </sc-table> */
+/* <sc-table> AdventureWorksDW.FactCurrencyRate </sc-table> */
 --** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS ADVENTUREWORKSDW.SNOWCONVERT.DimAccount
+CREATE TABLE IF NOT EXISTS ADVENTUREWORKSDW.SNOWCONVERT.FactCurrencyRate
 (
-     AccountKey INTEGER NOT NULL,
-     ParentAccountKey INTEGER,
-     AccountCodeAlternateKey INTEGER,
-     ParentAccountCodeAlternateKey INTEGER,
-     AccountDescription VARCHAR(50) NOT NULL,
-     AccountType VARCHAR(50),
-     Operator VARCHAR(50),
-     CustomMembers VARCHAR(300),
-     ValueType VARCHAR(50),
-     CustomMemberOptions VARCHAR(200),
-PRIMARY KEY ( AccountKey ))
+     CurrencyKey INTEGER NOT NULL,
+     DateKey INTEGER NOT NULL,
+     AverageRate NUMBER(38, 18) NOT NULL,
+     EndOfDayRate NUMBER(38, 18) NOT NULL,
+     "Date" DATE,
+PRIMARY KEY ( CurrencyKey ,DateKey ))
 COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "06/20/2025",  "domain": "no-domain-provided" }}'
 ;
 
@@ -413,25 +410,21 @@ COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,
 ;
 
 --
-/* <sc-table> AdventureWorksDW.FactCallCenter </sc-table> */
+/* <sc-table> AdventureWorksDW.DimAccount </sc-table> */
 --** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS ADVENTUREWORKSDW.SNOWCONVERT.FactCallCenter
+CREATE TABLE IF NOT EXISTS ADVENTUREWORKSDW.SNOWCONVERT.DimAccount
 (
-     FactCallCenterID INTEGER NOT NULL,
-     DateKey INTEGER NOT NULL,
-     WageType VARCHAR(15) NOT NULL,
-     Shift VARCHAR(20) NOT NULL,
-     LevelOneOperators SMALLINT NOT NULL,
-     LevelTwoOperators SMALLINT NOT NULL,
-     TotalOperators SMALLINT NOT NULL,
-     Calls INTEGER NOT NULL,
-     AutomaticResponses INTEGER NOT NULL,
-     Orders INTEGER NOT NULL,
-     IssuesRaised SMALLINT NOT NULL,
-     AverageTimePerIssue SMALLINT NOT NULL,
-     ServiceGrade NUMBER(38, 18) NOT NULL,
-     "Date" DATE,
-PRIMARY KEY ( FactCallCenterID ))
+     AccountKey INTEGER NOT NULL,
+     ParentAccountKey INTEGER,
+     AccountCodeAlternateKey INTEGER,
+     ParentAccountCodeAlternateKey INTEGER,
+     AccountDescription VARCHAR(50) NOT NULL,
+     AccountType VARCHAR(50),
+     Operator VARCHAR(50),
+     CustomMembers VARCHAR(300),
+     ValueType VARCHAR(50),
+     CustomMemberOptions VARCHAR(200),
+PRIMARY KEY ( AccountKey ))
 COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "06/20/2025",  "domain": "no-domain-provided" }}'
 ;
 
@@ -481,6 +474,29 @@ CREATE TABLE IF NOT EXISTS ADVENTUREWORKSDW.SNOWCONVERT.DimOrganization
      OrganizationName VARCHAR(50),
      CurrencyKey INTEGER,
 PRIMARY KEY ( OrganizationKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "06/20/2025",  "domain": "no-domain-provided" }}'
+;
+
+--
+/* <sc-table> AdventureWorksDW.FactCallCenter </sc-table> */
+--** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
+CREATE TABLE IF NOT EXISTS ADVENTUREWORKSDW.SNOWCONVERT.FactCallCenter
+(
+     FactCallCenterID INTEGER NOT NULL,
+     DateKey INTEGER NOT NULL,
+     WageType VARCHAR(15) NOT NULL,
+     Shift VARCHAR(20) NOT NULL,
+     LevelOneOperators SMALLINT NOT NULL,
+     LevelTwoOperators SMALLINT NOT NULL,
+     TotalOperators SMALLINT NOT NULL,
+     Calls INTEGER NOT NULL,
+     AutomaticResponses INTEGER NOT NULL,
+     Orders INTEGER NOT NULL,
+     IssuesRaised SMALLINT NOT NULL,
+     AverageTimePerIssue SMALLINT NOT NULL,
+     ServiceGrade NUMBER(38, 18) NOT NULL,
+     "Date" DATE,
+PRIMARY KEY ( FactCallCenterID ))
 COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "06/20/2025",  "domain": "no-domain-provided" }}'
 ;
 
