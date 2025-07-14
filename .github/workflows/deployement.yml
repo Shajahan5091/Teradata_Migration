@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'Snowflake_DDLs**'
+      - 'DDLs/Snowflake_DDLs**'
   workflow_dispatch:
 
 jobs:
@@ -40,7 +40,7 @@ jobs:
 
       - name: Debug List files in the target folder
         run: |
-          echo "Listing files in $GITHUB_WORKSPACE/DDLs:"
+          echo "Listing files in $GITHUB_WORKSPACE/DDLs/Snowflake_DDLs:"
           ls -alh "$GITHUB_WORKSPACE/DDLs"
 
       - name: Remove BOM from SQL files
@@ -52,6 +52,6 @@ jobs:
           schemachange deploy \
             --config-folder ~/.snowflake \
             --connection-name default \
-            -f "$GITHUB_WORKSPACE/DDLs" \
+            -f "$GITHUB_WORKSPACE/DDLs/Snowflake_DDLs" \
             --change-history-table ADVENTUREWORKSDW.SNOWCONVERT.CHANGE_HISTORY \
             --create-change-history-table
