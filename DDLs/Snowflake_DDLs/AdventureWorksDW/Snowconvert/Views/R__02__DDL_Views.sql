@@ -20,6 +20,41 @@ LEFT JOIN
 		AdventureWorksDW.Snowconvert.DimScenario s ON f.ScenarioKey = s.ScenarioKey;
 
 --
+		/* <sc-view> AdventureWorksDW.vw_sample </sc-view> */
+		CREATE VIEW IF NOT EXISTS AdventureWorksDW.Snowconvert.vw_sample
+		COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "07/15/2025",  "domain": "no-domain-provided" }}'
+		AS
+		SELECT
+	EmployeeKey,
+	FirstName || ' ' || LastName as EmployeeName
+	FROM
+	AdventureWorksDW.Snowconvert.DimEmployee
+	UNION ALL
+	SELECT
+	EmployeeKey,
+	EmployeeName
+	FROM
+	AdventureWorksDW.Snowconvert.vw_EmployeeTerritory;
+
+--
+	/* <sc-view> AdventureWorksDW.vw_EmployeeTerritory </sc-view> */
+	CREATE VIEW IF NOT EXISTS AdventureWorksDW.Snowconvert.vw_EmployeeTerritory
+	COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "07/15/2025",  "domain": "no-domain-provided" }}'
+	AS
+	SELECT
+	e.EmployeeKey,
+	e.FirstName || ' ' || e.LastName AS EmployeeName,
+	e."Title",
+	e.Gender,
+	t.SalesTerritoryRegion,
+	t.SalesTerritoryCountry,
+	t.SalesTerritoryGroup
+FROM
+	AdventureWorksDW.Snowconvert.DimEmployee e
+LEFT JOIN
+		AdventureWorksDW.Snowconvert.DimSalesTerritory t ON e.SalesTerritoryKey = t.SalesTerritoryKey;
+
+--
 		/* <sc-view> AdventureWorksDW.vw_ResellerWithGeography </sc-view> */
 		CREATE VIEW IF NOT EXISTS AdventureWorksDW.Snowconvert.vw_ResellerWithGeography
 		COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "07/15/2025",  "domain": "no-domain-provided" }}'
@@ -37,24 +72,6 @@ FROM
 	AdventureWorksDW.Snowconvert.DimReseller r
 LEFT JOIN
 		AdventureWorksDW.Snowconvert.DimGeography g ON r.GeographyKey = g.GeographyKey;
-
---
-		/* <sc-view> AdventureWorksDW.vw_EmployeeTerritory </sc-view> */
-		CREATE VIEW IF NOT EXISTS AdventureWorksDW.Snowconvert.vw_EmployeeTerritory
-		COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "07/15/2025",  "domain": "no-domain-provided" }}'
-		AS
-		SELECT
-	e.EmployeeKey,
-	e.FirstName || ' ' || e.LastName AS EmployeeName,
-	e."Title",
-	e.Gender,
-	t.SalesTerritoryRegion,
-	t.SalesTerritoryCountry,
-	t.SalesTerritoryGroup
-FROM
-	AdventureWorksDW.Snowconvert.DimEmployee e
-LEFT JOIN
-		AdventureWorksDW.Snowconvert.DimSalesTerritory t ON e.SalesTerritoryKey = t.SalesTerritoryKey;
 
 --
 		/* <sc-view> AdventureWorksDW.vw_ProductWithCategory </sc-view> */
