@@ -580,18 +580,22 @@ PRIMARY KEY ( SurveyResponseKey ))
 ;
 
 --
-/* <sc-table> AdventureWorksDW.FactAdditionalInternationalProductDescription </sc-table> */
-CREATE SET TABLE AdventureWorksDW.FactAdditionalInternationalProductDescription ,FALLBACK ,
+/* <sc-table> AdventureWorksDW.sample_table </sc-table> */
+CREATE MULTISET TABLE AdventureWorksDW.sample_table ,FALLBACK ,
      NO BEFORE JOURNAL,
      NO AFTER JOURNAL,
      CHECKSUM = DEFAULT,
      DEFAULT MERGEBLOCKRATIO,
      MAP = TD_MAP1
      (
-      ProductKey INTEGER NOT NULL,
-      CultureName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
-      ProductDescription VARCHAR(32000) CHARACTER SET UNICODE NOT CASESPECIFIC NOT NULL COMPRESS USING TD_SYSFNLIB.TRANSUNICODETOUTF8 DECOMPRESS USING TD_SYSFNLIB.TRANSUTF8TOUNICODE )
-PRIMARY INDEX ( ProductKey );
+      EmployeeKey INTEGER,
+      EmployeeName VARCHAR(101) CHARACTER SET UNICODE CASESPECIFIC,
+      "Title" VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      Gender CHAR(1) CHARACTER SET LATIN NOT CASESPECIFIC,
+      SalesTerritoryRegion VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC,
+      SalesTerritoryCountry VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC,
+      SalesTerritoryGroup VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC)
+PRIMARY INDEX ( EmployeeKey );
 
 --
 /* <sc-table> AdventureWorksDW.DimProduct </sc-table> */
@@ -639,4 +643,18 @@ CREATE SET TABLE AdventureWorksDW.DimProduct ,FALLBACK ,
       Status VARCHAR(7) CHARACTER SET LATIN NOT CASESPECIFIC COMPRESS 'Current', 
 PRIMARY KEY ( ProductKey ))
 ;
+
+--
+/* <sc-table> AdventureWorksDW.FactAdditionalInternationalProductDescription </sc-table> */
+CREATE SET TABLE AdventureWorksDW.FactAdditionalInternationalProductDescription ,FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO,
+     MAP = TD_MAP1
+     (
+      ProductKey INTEGER NOT NULL,
+      CultureName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
+      ProductDescription VARCHAR(32000) CHARACTER SET UNICODE NOT CASESPECIFIC NOT NULL COMPRESS USING TD_SYSFNLIB.TRANSUNICODETOUTF8 DECOMPRESS USING TD_SYSFNLIB.TRANSUTF8TOUNICODE )
+PRIMARY INDEX ( ProductKey );
 
