@@ -18,21 +18,17 @@ LEFT JOIN
 	AdventureWorksDW.DimScenario s ON f.ScenarioKey = s.ScenarioKey;
 
 --
-/* <sc-view> AdventureWorksDW.vw_ResellerWithGeography </sc-view> */
-REPLACE VIEW AdventureWorksDW.vw_ResellerWithGeography AS
-SELECT
-	r.ResellerKey,
-	r.ResellerName,
-	r.BusinessType,
-	r.AnnualSales,
-	r.NumberEmployees,
-	g.City,
-	g.StateProvinceName,
-	g.EnglishCountryRegionName
-FROM
-	AdventureWorksDW.DimReseller r
-LEFT JOIN
-	AdventureWorksDW.DimGeography g ON r.GeographyKey = g.GeographyKey;
+/* <sc-view> AdventureWorksDW.vw_sample </sc-view> */
+REPLACE VIEW AdventureWorksDW.vw_sample AS 
+ SELECT 
+ 	EmployeeKey,
+ 	FirstName || ' ' || LastName as EmployeeName
+ FROM AdventureWorksDW.DimEmployee
+ UNION ALL
+ SELECT
+ 	EmployeeKey,
+ 	EmployeeName
+ FROM AdventureWorksDW.vw_EmployeeTerritory;
 
 --
 /* <sc-view> AdventureWorksDW.vw_EmployeeTerritory </sc-view> */
@@ -49,6 +45,23 @@ FROM
 	AdventureWorksDW.DimEmployee e
 LEFT JOIN
 	AdventureWorksDW.DimSalesTerritory t ON e.SalesTerritoryKey = t.SalesTerritoryKey;
+
+--
+/* <sc-view> AdventureWorksDW.vw_ResellerWithGeography </sc-view> */
+REPLACE VIEW AdventureWorksDW.vw_ResellerWithGeography AS
+SELECT
+	r.ResellerKey,
+	r.ResellerName,
+	r.BusinessType,
+	r.AnnualSales,
+	r.NumberEmployees,
+	g.City,
+	g.StateProvinceName,
+	g.EnglishCountryRegionName
+FROM
+	AdventureWorksDW.DimReseller r
+LEFT JOIN
+	AdventureWorksDW.DimGeography g ON r.GeographyKey = g.GeographyKey;
 
 --
 /* <sc-view> AdventureWorksDW.vw_ProductWithCategory </sc-view> */
