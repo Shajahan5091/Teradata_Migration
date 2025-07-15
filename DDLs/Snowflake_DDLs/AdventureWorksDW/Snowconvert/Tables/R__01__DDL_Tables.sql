@@ -502,13 +502,16 @@ COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,
 ;
 
 --
-/* <sc-table> AdventureWorksDW.FactAdditionalInternationalProductDescription </sc-table> */
---** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactAdditionalInternationalProductDescription
+/* <sc-table> AdventureWorksDW.sample_table </sc-table> */
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.sample_table
 (
-     ProductKey INTEGER NOT NULL,
-     CultureName VARCHAR(50) NOT NULL,
-     ProductDescription VARCHAR(32000) NOT NULL
+     EmployeeKey INTEGER,
+     EmployeeName VARCHAR(101),
+     "Title" VARCHAR(50),
+     Gender CHAR(1),
+     SalesTerritoryRegion VARCHAR(50),
+     SalesTerritoryCountry VARCHAR(50),
+     SalesTerritoryGroup VARCHAR(50)
 )
 COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "07/15/2025",  "domain": "no-domain-provided" }}'
 ;
@@ -554,5 +557,17 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimProduct
      EndDate DATE,
      Status VARCHAR(7),
 PRIMARY KEY ( ProductKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "07/15/2025",  "domain": "no-domain-provided" }}'
+;
+
+--
+/* <sc-table> AdventureWorksDW.FactAdditionalInternationalProductDescription </sc-table> */
+--** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactAdditionalInternationalProductDescription
+(
+     ProductKey INTEGER NOT NULL,
+     CultureName VARCHAR(50) NOT NULL,
+     ProductDescription VARCHAR(32000) NOT NULL
+)
 COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "07/15/2025",  "domain": "no-domain-provided" }}'
 ;
