@@ -4,7 +4,7 @@ CREATE PROCEDURE IF NOT EXISTS AdventureWorksDW.Snowconvert.sp_GetEmployeeQuotaS
 RETURNS TABLE (
 )
 LANGUAGE SQL
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "08/14/2025",  "domain": "no-domain-provided" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
 EXECUTE AS CALLER
 AS
 $$
@@ -36,7 +36,7 @@ CREATE PROCEDURE IF NOT EXISTS AdventureWorksDW.Snowconvert.sp_GetResellerSalesB
 RETURNS TABLE (
 )
 LANGUAGE SQL
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 7,  "patch": "0.0" }, "attributes": {  "component": "teradata",  "convertedOn": "08/14/2025",  "domain": "no-domain-provided" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
 EXECUTE AS CALLER
 AS
 $$
@@ -50,8 +50,7 @@ $$
 			FROM
 				AdventureWorksDW.Snowconvert.FactResellerSales s
 			JOIN
-					AdventureWorksDW.Snowconvert.DimReseller r
-				ON s.ResellerKey = r.ResellerKey
+					AdventureWorksDW.Snowconvert.DimReseller r ON s.ResellerKey = r.ResellerKey
 			JOIN
 					AdventureWorksDW.Snowconvert.DimGeography geo ON r.GeographyKey = geo.GeographyKey
 			GROUP BY

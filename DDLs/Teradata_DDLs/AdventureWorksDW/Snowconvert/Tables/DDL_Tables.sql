@@ -159,6 +159,7 @@ CREATE SET TABLE AdventureWorksDW.DimEmployee ,FALLBACK ,
       FirstName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC NOT NULL,
       LastName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC NOT NULL,
       MiddleName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      NameStyle BYTEINT CHECK ( NameStyle  IN (0 ,1 ) ) NOT NULL,
       "Title" VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
       HireDate DATE FORMAT 'yyyy-mm-dd',
       BirthDate DATE FORMAT 'yyyy-mm-dd',
@@ -168,15 +169,19 @@ CREATE SET TABLE AdventureWorksDW.DimEmployee ,FALLBACK ,
       MaritalStatus CHAR(1) CHARACTER SET LATIN NOT CASESPECIFIC,
       EmergencyContactName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
       EmergencyContactPhone VARCHAR(25) CHARACTER SET LATIN NOT CASESPECIFIC,
+      SalariedFlag BYTEINT CHECK ( SalariedFlag  IN (0 ,1 ) ),
       Gender CHAR(1) CHARACTER SET LATIN NOT CASESPECIFIC,
       PayFrequency BYTEINT,
       BaseRate NUMBER(18,4),
       VacationHours SMALLINT,
       SickLeaveHours SMALLINT,
+      CurrentFlag BYTEINT CHECK ( CurrentFlag  IN (0 ,1 ) ) NOT NULL,
+      SalesPersonFlag BYTEINT CHECK ( SalesPersonFlag  IN (0 ,1 ) ) NOT NULL,
       DepartmentName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC,
       StartDate DATE FORMAT 'yyyy-mm-dd',
       EndDate DATE FORMAT 'yyyy-mm-dd',
-      Status VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC, 
+      Status VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      EmployeePhoto BLOB(2097088000), 
 PRIMARY KEY ( EmployeeKey ))
 ;
 
@@ -208,7 +213,8 @@ CREATE SET TABLE AdventureWorksDW.DimSalesTerritory ,FALLBACK ,
       SalesTerritoryAlternateKey INTEGER,
       SalesTerritoryRegion VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
       SalesTerritoryCountry VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
-      SalesTerritoryGroup VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC, 
+      SalesTerritoryGroup VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC,
+      SalesTerritoryImage BLOB(2097088000), 
 PRIMARY KEY ( SalesTerritoryKey ))
 ;
 
@@ -260,22 +266,40 @@ PRIMARY KEY ( ResellerKey ))
 ;
 
 --
-/* <sc-table> AdventureWorksDW.sample_table </sc-table> */
-CREATE MULTISET TABLE AdventureWorksDW.sample_table ,FALLBACK ,
+/* <sc-table> AdventureWorksDW.ProspectiveBuyer </sc-table> */
+CREATE SET TABLE AdventureWorksDW.ProspectiveBuyer ,FALLBACK ,
      NO BEFORE JOURNAL,
      NO AFTER JOURNAL,
      CHECKSUM = DEFAULT,
      DEFAULT MERGEBLOCKRATIO,
      MAP = TD_MAP1
      (
-      EmployeeKey INTEGER,
-      EmployeeName VARCHAR(101) CHARACTER SET UNICODE CASESPECIFIC,
-      "Title" VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      ProspectiveBuyerKey INTEGER NOT NULL,
+      ProspectAlternateKey VARCHAR(15) CHARACTER SET LATIN NOT CASESPECIFIC,
+      FirstName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      MiddleName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      LastName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      BirthDate DATE FORMAT 'yyyy-mm-dd',
+      MaritalStatus CHAR(1) CHARACTER SET LATIN NOT CASESPECIFIC,
       Gender CHAR(1) CHARACTER SET LATIN NOT CASESPECIFIC,
-      SalesTerritoryRegion VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC,
-      SalesTerritoryCountry VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC,
-      SalesTerritoryGroup VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC)
-PRIMARY INDEX ( EmployeeKey );
+      EmailAddress VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      YearlyIncome NUMBER(18,4),
+      TotalChildren BYTEINT,
+      NumberChildrenAtHome BYTEINT,
+      Education VARCHAR(40) CHARACTER SET LATIN NOT CASESPECIFIC,
+      Occupation VARCHAR(100) CHARACTER SET LATIN NOT CASESPECIFIC,
+      HouseOwnerFlag CHAR(1) CHARACTER SET LATIN NOT CASESPECIFIC,
+      NumberCarsOwned BYTEINT,
+      AddressLine1 VARCHAR(120) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      AddressLine2 VARCHAR(120) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      City VARCHAR(30) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      StateProvinceCode VARCHAR(3) CHARACTER SET LATIN NOT CASESPECIFIC,
+      PostalCode VARCHAR(15) CHARACTER SET LATIN NOT CASESPECIFIC,
+      Phone VARCHAR(20) CHARACTER SET LATIN NOT CASESPECIFIC,
+      Salutation VARCHAR(8) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      Unknown INTEGER, 
+PRIMARY KEY ( ProspectiveBuyerKey ))
+;
 
 --
 /* <sc-table> AdventureWorksDW.FactCurrencyRate </sc-table> */
@@ -349,39 +373,21 @@ CREATE MULTISET TABLE AdventureWorksDW.FactInternetSales ,FALLBACK ,
 PRIMARY INDEX ( SalesOrderNumber );
 
 --
-/* <sc-table> AdventureWorksDW.ProspectiveBuyer </sc-table> */
-CREATE SET TABLE AdventureWorksDW.ProspectiveBuyer ,FALLBACK ,
+/* <sc-table> AdventureWorksDW.DimProductSubcategory </sc-table> */
+CREATE SET TABLE AdventureWorksDW.DimProductSubcategory ,FALLBACK ,
      NO BEFORE JOURNAL,
      NO AFTER JOURNAL,
      CHECKSUM = DEFAULT,
      DEFAULT MERGEBLOCKRATIO,
      MAP = TD_MAP1
      (
-      ProspectiveBuyerKey INTEGER NOT NULL,
-      ProspectAlternateKey VARCHAR(15) CHARACTER SET LATIN NOT CASESPECIFIC,
-      FirstName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
-      MiddleName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
-      LastName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
-      BirthDate DATE FORMAT 'yyyy-mm-dd',
-      MaritalStatus CHAR(1) CHARACTER SET LATIN NOT CASESPECIFIC,
-      Gender CHAR(1) CHARACTER SET LATIN NOT CASESPECIFIC,
-      EmailAddress VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
-      YearlyIncome NUMBER(18,4),
-      TotalChildren BYTEINT,
-      NumberChildrenAtHome BYTEINT,
-      Education VARCHAR(40) CHARACTER SET LATIN NOT CASESPECIFIC,
-      Occupation VARCHAR(100) CHARACTER SET LATIN NOT CASESPECIFIC,
-      HouseOwnerFlag CHAR(1) CHARACTER SET LATIN NOT CASESPECIFIC,
-      NumberCarsOwned BYTEINT,
-      AddressLine1 VARCHAR(120) CHARACTER SET UNICODE NOT CASESPECIFIC,
-      AddressLine2 VARCHAR(120) CHARACTER SET UNICODE NOT CASESPECIFIC,
-      City VARCHAR(30) CHARACTER SET UNICODE NOT CASESPECIFIC,
-      StateProvinceCode VARCHAR(3) CHARACTER SET LATIN NOT CASESPECIFIC,
-      PostalCode VARCHAR(15) CHARACTER SET LATIN NOT CASESPECIFIC,
-      Phone VARCHAR(20) CHARACTER SET LATIN NOT CASESPECIFIC,
-      Salutation VARCHAR(8) CHARACTER SET UNICODE NOT CASESPECIFIC,
-      Unknown INTEGER, 
-PRIMARY KEY ( ProspectiveBuyerKey ))
+      ProductSubcategoryKey INTEGER NOT NULL,
+      ProductSubcategoryAlternateKey INTEGER,
+      EnglishProductSubcategoryName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
+      SpanishProductSubcategoryName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
+      FrenchProductSubcategoryName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
+      ProductCategoryKey INTEGER, 
+PRIMARY KEY ( ProductSubcategoryKey ))
 ;
 
 --
@@ -455,21 +461,22 @@ PRIMARY KEY ( DateKey ))
 ;
 
 --
-/* <sc-table> AdventureWorksDW.DimProductSubcategory </sc-table> */
-CREATE SET TABLE AdventureWorksDW.DimProductSubcategory ,FALLBACK ,
+/* <sc-table> AdventureWorksDW.FactSalesQuota </sc-table> */
+CREATE SET TABLE AdventureWorksDW.FactSalesQuota ,FALLBACK ,
      NO BEFORE JOURNAL,
      NO AFTER JOURNAL,
      CHECKSUM = DEFAULT,
      DEFAULT MERGEBLOCKRATIO,
      MAP = TD_MAP1
      (
-      ProductSubcategoryKey INTEGER NOT NULL,
-      ProductSubcategoryAlternateKey INTEGER,
-      EnglishProductSubcategoryName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
-      SpanishProductSubcategoryName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
-      FrenchProductSubcategoryName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
-      ProductCategoryKey INTEGER, 
-PRIMARY KEY ( ProductSubcategoryKey ))
+      SalesQuotaKey INTEGER NOT NULL,
+      EmployeeKey INTEGER NOT NULL,
+      DateKey INTEGER NOT NULL,
+      CalendarYear SMALLINT NOT NULL,
+      CalendarQuarter BYTEINT NOT NULL,
+      SalesAmountQuota NUMBER(18,4) NOT NULL,
+      "Date" DATE FORMAT 'yyyy-mm-dd', 
+PRIMARY KEY ( SalesQuotaKey ))
 ;
 
 --
@@ -540,22 +547,20 @@ PRIMARY KEY ( PromotionKey ))
 ;
 
 --
-/* <sc-table> AdventureWorksDW.FactSalesQuota </sc-table> */
-CREATE SET TABLE AdventureWorksDW.FactSalesQuota ,FALLBACK ,
+/* <sc-table> AdventureWorksDW.DimOrganization </sc-table> */
+CREATE SET TABLE AdventureWorksDW.DimOrganization ,FALLBACK ,
      NO BEFORE JOURNAL,
      NO AFTER JOURNAL,
      CHECKSUM = DEFAULT,
      DEFAULT MERGEBLOCKRATIO,
      MAP = TD_MAP1
      (
-      SalesQuotaKey INTEGER NOT NULL,
-      EmployeeKey INTEGER NOT NULL,
-      DateKey INTEGER NOT NULL,
-      CalendarYear SMALLINT NOT NULL,
-      CalendarQuarter BYTEINT NOT NULL,
-      SalesAmountQuota NUMBER(18,4) NOT NULL,
-      "Date" DATE FORMAT 'yyyy-mm-dd', 
-PRIMARY KEY ( SalesQuotaKey ))
+      OrganizationKey INTEGER NOT NULL,
+      ParentOrganizationKey INTEGER,
+      PercentageOfOwnership VARCHAR(16) CHARACTER SET LATIN NOT CASESPECIFIC,
+      OrganizationName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC,
+      CurrencyKey INTEGER, 
+PRIMARY KEY ( OrganizationKey ))
 ;
 
 --
@@ -593,23 +598,6 @@ CREATE SET TABLE AdventureWorksDW.FactAdditionalInternationalProductDescription 
 PRIMARY INDEX ( ProductKey );
 
 --
-/* <sc-table> AdventureWorksDW.DimOrganization </sc-table> */
-CREATE SET TABLE AdventureWorksDW.DimOrganization ,FALLBACK ,
-     NO BEFORE JOURNAL,
-     NO AFTER JOURNAL,
-     CHECKSUM = DEFAULT,
-     DEFAULT MERGEBLOCKRATIO,
-     MAP = TD_MAP1
-     (
-      OrganizationKey INTEGER NOT NULL,
-      ParentOrganizationKey INTEGER,
-      PercentageOfOwnership VARCHAR(16) CHARACTER SET LATIN NOT CASESPECIFIC,
-      OrganizationName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC,
-      CurrencyKey INTEGER, 
-PRIMARY KEY ( OrganizationKey ))
-;
-
---
 /* <sc-table> AdventureWorksDW.DimProduct </sc-table> */
 CREATE SET TABLE AdventureWorksDW.DimProduct ,FALLBACK ,
      NO BEFORE JOURNAL,
@@ -627,6 +615,7 @@ CREATE SET TABLE AdventureWorksDW.DimProduct ,FALLBACK ,
       SpanishProductName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
       FrenchProductName VARCHAR(50) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
       StandardCost NUMBER(18,4),
+      FinishedGoodsFlag BYTEINT CHECK ( FinishedGoodsFlag  IN (0 ,1 ) ) NOT NULL,
       Color VARCHAR(15) CHARACTER SET LATIN NOT CASESPECIFIC NOT NULL,
       SafetyStockLevel SMALLINT,
       ReorderPoint SMALLINT,
@@ -640,6 +629,7 @@ CREATE SET TABLE AdventureWorksDW.DimProduct ,FALLBACK ,
       "Class" CHAR(2) CHARACTER SET UNICODE NOT CASESPECIFIC,
       STYLE CHAR(2) CHARACTER SET UNICODE NOT CASESPECIFIC,
       ModelName VARCHAR(50) CHARACTER SET UNICODE NOT CASESPECIFIC,
+      LargePhoto BLOB(2097088000),
       EnglishDescription VARCHAR(400) CHARACTER SET LATIN NOT CASESPECIFIC,
       FrenchDescription VARCHAR(400) CHARACTER SET LATIN NOT CASESPECIFIC,
       ChineseDescription VARCHAR(400) CHARACTER SET UNICODE NOT CASESPECIFIC,
