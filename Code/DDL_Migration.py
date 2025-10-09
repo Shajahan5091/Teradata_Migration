@@ -11,7 +11,7 @@ import time
 from github import Github
 import snowflake.connector
 
-
+# hello
 # --- Paths ---
 bteq_scripts_dir = "/root/Desktop/Extraction_Scripts_Updated"
 ddls_dir = "/root/Desktop/DDLs"
@@ -533,7 +533,7 @@ if __name__ == "__main__":
         modify_all_ddl_files()
         copy_teradata_ddls_to_final()
         copy_and_rename_snowflake_outputs()
-        git_commit_and_push()
+        # git_commit_and_push()
         print("\n✅ All steps completed successfully!")
         print(f"📁 Original Teradata DDLs: {teradata_ddls_dir}")
         print(f"📁 Converted Snowflake DDLs: {snowflake_ddls_dir}")
