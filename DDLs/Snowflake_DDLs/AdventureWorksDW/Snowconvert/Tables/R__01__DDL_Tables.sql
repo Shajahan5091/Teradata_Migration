@@ -8,7 +8,63 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimSalesReason
      SalesReasonName VARCHAR(50) NOT NULL,
      SalesReasonReasonType VARCHAR(50) NOT NULL,
 PRIMARY KEY ( SalesReasonKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
+;
+
+--
+/* <sc-table> AdventureWorksDW.Employee </sc-table> */
+--** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.Employee
+(
+     Emp_Id INTEGER NOT NULL,
+     Emp_Name VARCHAR(100),
+     Dept_Id SMALLINT,
+     STATUS CHAR(1) DEFAULT 'A')
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
+;
+
+--
+/* <sc-table> AdventureWorksDW.DimScenario </sc-table> */
+--** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimScenario
+(
+     ScenarioKey INTEGER NOT NULL,
+     ScenarioName VARCHAR(50),
+PRIMARY KEY ( ScenarioKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
+;
+
+--
+/* <sc-table> AdventureWorksDW.FactProductInventory </sc-table> */
+--** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactProductInventory
+(
+     ProductKey INTEGER NOT NULL,
+     DateKey INTEGER NOT NULL,
+     MovementDate DATE NOT NULL,
+     UnitCost NUMBER(18,4) NOT NULL,
+     UnitsIn INTEGER NOT NULL,
+     UnitsOut INTEGER NOT NULL,
+     UnitsBalance INTEGER NOT NULL,
+PRIMARY KEY ( ProductKey ,DateKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
+;
+
+--
+/* <sc-table> AdventureWorksDW.FactFinance </sc-table> */
+--** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactFinance
+(
+     FinanceKey INTEGER NOT NULL,
+     DateKey INTEGER NOT NULL,
+     OrganizationKey INTEGER NOT NULL,
+     DepartmentGroupKey INTEGER NOT NULL,
+     ScenarioKey INTEGER NOT NULL,
+     AccountKey INTEGER NOT NULL,
+     Amount NUMBER(38, 18) NOT NULL,
+     "Date" DATE,
+PRIMARY KEY ( FinanceKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -43,51 +99,71 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactResellerSales
      DueDate DATE,
      ShipDate DATE
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
-/* <sc-table> AdventureWorksDW.DimScenario </sc-table> */
+/* <sc-table> AdventureWorksDW.FactInternetSalesReason </sc-table> */
 --** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimScenario
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactInternetSalesReason
 (
-     ScenarioKey INTEGER NOT NULL,
-     ScenarioName VARCHAR(50),
-PRIMARY KEY ( ScenarioKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+     SalesOrderNumber VARCHAR(20) NOT NULL,
+     SalesOrderLineNumber SMALLINT NOT NULL,
+     SalesReasonKey INTEGER NOT NULL
+)
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
-/* <sc-table> AdventureWorksDW.FactProductInventory </sc-table> */
+/* <sc-table> AdventureWorksDW.DimEmployee </sc-table> */
 --** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactProductInventory
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimEmployee
 (
-     ProductKey INTEGER NOT NULL,
-     DateKey INTEGER NOT NULL,
-     MovementDate DATE NOT NULL,
-     UnitCost NUMBER(18,4) NOT NULL,
-     UnitsIn INTEGER NOT NULL,
-     UnitsOut INTEGER NOT NULL,
-     UnitsBalance INTEGER NOT NULL,
-PRIMARY KEY ( ProductKey ,DateKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+     EmployeeKey INTEGER NOT NULL,
+     ParentEmployeeKey INTEGER,
+     EmployeeNationalIDAlternateKey VARCHAR(15),
+     ParentEmployeeNationalIDAltKey VARCHAR(15),
+     SalesTerritoryKey INTEGER,
+     FirstName VARCHAR(50) NOT NULL,
+     LastName VARCHAR(50) NOT NULL,
+     MiddleName VARCHAR(50),
+     NameStyle BYTEINT NOT NULL,
+     "Title" VARCHAR(50),
+     HireDate DATE,
+     BirthDate DATE,
+     LoginID VARCHAR(256),
+     EmailAddress VARCHAR(50),
+     Phone VARCHAR(25),
+     MaritalStatus CHAR(1),
+     EmergencyContactName VARCHAR(50),
+     EmergencyContactPhone VARCHAR(25),
+     SalariedFlag BYTEINT,
+     Gender CHAR(1),
+     PayFrequency BYTEINT,
+     BaseRate NUMBER(18,4),
+     VacationHours SMALLINT,
+     SickLeaveHours SMALLINT,
+     CurrentFlag BYTEINT NOT NULL,
+     SalesPersonFlag BYTEINT NOT NULL,
+     DepartmentName VARCHAR(50),
+     StartDate DATE,
+     EndDate DATE,
+     Status VARCHAR(50),
+     EmployeePhoto BINARY /*** SSC-FDM-TD0001 - COLUMN CONVERTED FROM BLOB DATA TYPE ***/,
+PRIMARY KEY ( EmployeeKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
-/* <sc-table> AdventureWorksDW.FactFinance </sc-table> */
+/* <sc-table> AdventureWorksDW.DimCurrency </sc-table> */
 --** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactFinance
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimCurrency
 (
-     FinanceKey INTEGER NOT NULL,
-     DateKey INTEGER NOT NULL,
-     OrganizationKey INTEGER NOT NULL,
-     DepartmentGroupKey INTEGER NOT NULL,
-     ScenarioKey INTEGER NOT NULL,
-     AccountKey INTEGER NOT NULL,
-     Amount NUMBER(38, 18) NOT NULL,
-     "Date" DATE,
-PRIMARY KEY ( FinanceKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+     CurrencyKey INTEGER NOT NULL,
+     CurrencyAlternateKey CHAR(3) NOT NULL,
+     CurrencyName VARCHAR(50) NOT NULL,
+PRIMARY KEY ( CurrencyKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -107,86 +183,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimGeography
      SalesTerritoryKey INTEGER,
      IpAddressLocator VARCHAR(15),
 PRIMARY KEY ( GeographyKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
-;
-
---
-/* <sc-table> AdventureWorksDW.FactInternetSalesReason </sc-table> */
---** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactInternetSalesReason
-(
-     SalesOrderNumber VARCHAR(20) NOT NULL,
-     SalesOrderLineNumber SMALLINT NOT NULL,
-     SalesReasonKey INTEGER NOT NULL
-)
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
-;
-
---
-/* <sc-table> AdventureWorksDW.DimEmployee </sc-table> */
---** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimEmployee
-(
-     EmployeeKey INTEGER NOT NULL,
-     ParentEmployeeKey INTEGER,
-     EmployeeNationalIDAlternateKey VARCHAR(15),
-     ParentEmployeeNationalIDAltKey VARCHAR(15),
-     SalesTerritoryKey INTEGER,
-     FirstName VARCHAR(50) NOT NULL,
-     LastName VARCHAR(50) NOT NULL,
-     MiddleName VARCHAR(50),
-     NameStyle BYTEINTNameStyle BYTEINT NOT NULL,
-     "Title" VARCHAR(50),
-     HireDate DATE,
-     BirthDate DATE,
-     LoginID VARCHAR(256),
-     EmailAddress VARCHAR(50),
-     Phone VARCHAR(25),
-     MaritalStatus CHAR(1),
-     EmergencyContactName VARCHAR(50),
-     EmergencyContactPhone VARCHAR(25),
-     SalariedFlag BYTEINT NOT NULL,
-     Gender CHAR(1),
-     PayFrequency BYTEINT,
-     BaseRate NUMBER(18,4),
-     VacationHours SMALLINT,
-     SickLeaveHours SMALLINT,
-     CurrentFlag BYTEINT NOT NULL,
-     SalesPersonFlag BYTEINT NOT NULL,
-     DepartmentName VARCHAR(50),
-     StartDate DATE,
-     EndDate DATE,
-     Status VARCHAR(50),
-     EmployeePhoto BINARY /*** SSC-FDM-TD0001 - COLUMN CONVERTED FROM BLOB DATA TYPE ***/,
-PRIMARY KEY ( EmployeeKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
-;
-
---
-/* <sc-table> AdventureWorksDW.DimCurrency </sc-table> */
---** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimCurrency
-(
-     CurrencyKey INTEGER NOT NULL,
-     CurrencyAlternateKey CHAR(3) NOT NULL,
-     CurrencyName VARCHAR(50) NOT NULL,
-PRIMARY KEY ( CurrencyKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
-;
-
---
-/* <sc-table> AdventureWorksDW.DimSalesTerritory </sc-table> */
---** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimSalesTerritory
-(
-     SalesTerritoryKey INTEGER NOT NULL,
-     SalesTerritoryAlternateKey INTEGER,
-     SalesTerritoryRegion VARCHAR(50) NOT NULL,
-     SalesTerritoryCountry VARCHAR(50) NOT NULL,
-     SalesTerritoryGroup VARCHAR(50),
-     SalesTerritoryImage BINARY /*** SSC-FDM-TD0001 - COLUMN CONVERTED FROM BLOB DATA TYPE ***/,
-PRIMARY KEY ( SalesTerritoryKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -198,7 +195,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimDepartmentGroup
      ParentDepartmentGroupKey INTEGER,
      DepartmentGroupName VARCHAR(50),
 PRIMARY KEY ( DepartmentGroupKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -227,7 +224,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimReseller
      AnnualRevenue NUMBER(18,4),
      YearOpened INTEGER,
 PRIMARY KEY ( ResellerKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -260,21 +257,22 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.ProspectiveBuyer
      Salutation VARCHAR(8),
      Unknown INTEGER,
 PRIMARY KEY ( ProspectiveBuyerKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
-/* <sc-table> AdventureWorksDW.FactCurrencyRate </sc-table> */
+/* <sc-table> AdventureWorksDW.DimSalesTerritory </sc-table> */
 --** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactCurrencyRate
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimSalesTerritory
 (
-     CurrencyKey INTEGER NOT NULL,
-     DateKey INTEGER NOT NULL,
-     AverageRate NUMBER(38, 18) NOT NULL,
-     EndOfDayRate NUMBER(38, 18) NOT NULL,
-     "Date" DATE,
-PRIMARY KEY ( CurrencyKey ,DateKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+     SalesTerritoryKey INTEGER NOT NULL,
+     SalesTerritoryAlternateKey INTEGER,
+     SalesTerritoryRegion VARCHAR(50) NOT NULL,
+     SalesTerritoryCountry VARCHAR(50) NOT NULL,
+     SalesTerritoryGroup VARCHAR(50),
+     SalesTerritoryImage BINARY /*** SSC-FDM-TD0001 - COLUMN CONVERTED FROM BLOB DATA TYPE ***/,
+PRIMARY KEY ( SalesTerritoryKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -288,7 +286,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.NewFactCurrencyRate
      CurrencyKey INTEGER,
      DateKey INTEGER
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -322,7 +320,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactInternetSales
      DueDate DATE,
      ShipDate DATE
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -337,26 +335,21 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimProductSubcategory
      FrenchProductSubcategoryName VARCHAR(50) NOT NULL,
      ProductCategoryKey INTEGER,
 PRIMARY KEY ( ProductSubcategoryKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
-/* <sc-table> AdventureWorksDW.DimAccount </sc-table> */
+/* <sc-table> AdventureWorksDW.FactCurrencyRate </sc-table> */
 --** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimAccount
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactCurrencyRate
 (
-     AccountKey INTEGER NOT NULL,
-     ParentAccountKey INTEGER,
-     AccountCodeAlternateKey INTEGER,
-     ParentAccountCodeAlternateKey INTEGER,
-     AccountDescription VARCHAR(50) NOT NULL,
-     AccountType VARCHAR(50),
-     Operator VARCHAR(50),
-     CustomMembers VARCHAR(300),
-     ValueType VARCHAR(50),
-     CustomMemberOptions VARCHAR(200),
-PRIMARY KEY ( AccountKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+     CurrencyKey INTEGER NOT NULL,
+     DateKey INTEGER NOT NULL,
+     AverageRate NUMBER(38, 18) NOT NULL,
+     EndOfDayRate NUMBER(38, 18) NOT NULL,
+     "Date" DATE,
+PRIMARY KEY ( CurrencyKey ,DateKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -370,7 +363,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimProductCategory
      SpanishProductCategoryName VARCHAR(50) NOT NULL,
      FrenchProductCategoryName VARCHAR(50) NOT NULL,
 PRIMARY KEY ( ProductCategoryKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -398,46 +391,40 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimDate
      FiscalYear CHAR(4),
      FiscalSemester SMALLINT,
 PRIMARY KEY ( DateKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
-/* <sc-table> AdventureWorksDW.FactSalesQuota </sc-table> */
---** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactSalesQuota
+/* <sc-table> AdventureWorksDW.Transactions </sc-table> */
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.Transactions
 (
-     SalesQuotaKey INTEGER NOT NULL,
-     EmployeeKey INTEGER NOT NULL,
-     DateKey INTEGER NOT NULL,
-     CalendarYear SMALLINT NOT NULL,
-     CalendarQuarter BYTEINT NOT NULL,
-     SalesAmountQuota NUMBER(18,4) NOT NULL,
-     "Date" DATE,
-PRIMARY KEY ( SalesQuotaKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+     Trans_Id BIGINT,
+     Trans_Date DATE,
+     Amount DECIMAL(18, 2),
+     CUSTOMER_ID INTEGER
+)
+CLUSTER BY (Trans_Date)
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
+
 --
-/* <sc-table> AdventureWorksDW.FactCallCenter </sc-table> */
+/* <sc-table> AdventureWorksDW.DimAccount </sc-table> */
 --** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactCallCenter
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimAccount
 (
-     FactCallCenterID INTEGER NOT NULL,
-     DateKey INTEGER NOT NULL,
-     WageType VARCHAR(15) NOT NULL,
-     Shift VARCHAR(20) NOT NULL,
-     LevelOneOperators SMALLINT NOT NULL,
-     LevelTwoOperators SMALLINT NOT NULL,
-     TotalOperators SMALLINT NOT NULL,
-     Calls INTEGER NOT NULL,
-     AutomaticResponses INTEGER NOT NULL,
-     Orders INTEGER NOT NULL,
-     IssuesRaised SMALLINT NOT NULL,
-     AverageTimePerIssue SMALLINT NOT NULL,
-     ServiceGrade NUMBER(38, 18) NOT NULL,
-     "Date" DATE,
-PRIMARY KEY ( FactCallCenterID ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+     AccountKey INTEGER NOT NULL,
+     ParentAccountKey INTEGER,
+     AccountCodeAlternateKey INTEGER,
+     ParentAccountCodeAlternateKey INTEGER,
+     AccountDescription VARCHAR(50) NOT NULL,
+     AccountType VARCHAR(50),
+     Operator VARCHAR(50),
+     CustomMembers VARCHAR(300),
+     ValueType VARCHAR(50),
+     CustomMemberOptions VARCHAR(200),
+PRIMARY KEY ( AccountKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -448,7 +435,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.AdventureWorksDWBuildVer
      DBVersion VARCHAR(50),
      VersionDate TIMESTAMP(0)
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -473,21 +460,46 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimPromotion
      MinQty INTEGER,
      MaxQty INTEGER,
 PRIMARY KEY ( PromotionKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
-/* <sc-table> AdventureWorksDW.DimOrganization </sc-table> */
+/* <sc-table> AdventureWorksDW.FactSalesQuota </sc-table> */
 --** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
-CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimOrganization
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactSalesQuota
 (
-     OrganizationKey INTEGER NOT NULL,
-     ParentOrganizationKey INTEGER,
-     PercentageOfOwnership VARCHAR(16),
-     OrganizationName VARCHAR(50),
-     CurrencyKey INTEGER,
-PRIMARY KEY ( OrganizationKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+     SalesQuotaKey INTEGER NOT NULL,
+     EmployeeKey INTEGER NOT NULL,
+     DateKey INTEGER NOT NULL,
+     CalendarYear SMALLINT NOT NULL,
+     CalendarQuarter BYTEINT NOT NULL,
+     SalesAmountQuota NUMBER(18,4) NOT NULL,
+     "Date" DATE,
+PRIMARY KEY ( SalesQuotaKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
+;
+
+--
+/* <sc-table> AdventureWorksDW.FactCallCenter </sc-table> */
+--** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactCallCenter
+(
+     FactCallCenterID INTEGER NOT NULL,
+     DateKey INTEGER NOT NULL,
+     WageType VARCHAR(15) NOT NULL,
+     Shift VARCHAR(20) NOT NULL,
+     LevelOneOperators SMALLINT NOT NULL,
+     LevelTwoOperators SMALLINT NOT NULL,
+     TotalOperators SMALLINT NOT NULL,
+     Calls INTEGER NOT NULL,
+     AutomaticResponses INTEGER NOT NULL,
+     Orders INTEGER NOT NULL,
+     IssuesRaised SMALLINT NOT NULL,
+     AverageTimePerIssue SMALLINT NOT NULL,
+     ServiceGrade NUMBER(38, 18) NOT NULL,
+     "Date" DATE,
+PRIMARY KEY ( FactCallCenterID ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -504,7 +516,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactSurveyResponse
      EnglishProductSubcategoryName VARCHAR(50) NOT NULL,
      "Date" DATE,
 PRIMARY KEY ( SurveyResponseKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -516,7 +528,21 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactAdditionalInternatio
      CultureName VARCHAR(50) NOT NULL,
      ProductDescription VARCHAR(32000) NOT NULL
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
+;
+
+--
+/* <sc-table> AdventureWorksDW.DimOrganization </sc-table> */
+--** SSC-FDM-TD0024 - SET TABLE FUNCTIONALITY NOT SUPPORTED. TABLE MIGHT HAVE DUPLICATE ROWS **
+CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimOrganization
+(
+     OrganizationKey INTEGER NOT NULL,
+     ParentOrganizationKey INTEGER,
+     PercentageOfOwnership VARCHAR(16),
+     OrganizationName VARCHAR(50),
+     CurrencyKey INTEGER,
+PRIMARY KEY ( OrganizationKey ))
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
 
 --
@@ -561,5 +587,5 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimProduct
      EndDate DATE,
      Status VARCHAR(7),
 PRIMARY KEY ( ProductKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/09/2025",  "domain": "no-domain-provided",  "migrationid": "b8qZAexA4H63bAGJhn/NZw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
 ;
