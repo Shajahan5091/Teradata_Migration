@@ -4,7 +4,7 @@ CREATE FUNCTION IF NOT EXISTS AdventureWorksDW.Snowconvert.ufn_CalculateDiscount
 RETURNS DECIMAL(18, 2)
 LANGUAGE SQL
 IMMUTABLE
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/12/2025",  "domain": "no-domain-provided",  "migrationid": "S9qZAbkMwHWOXryciJpCUQ==" }}'
 AS
 $$
 	amount * (1 - (discount_percent / 100))
@@ -13,10 +13,10 @@ $$;
 --
 /* <sc-function> AdventureWorksDW.ufn_CQuarterName </sc-function> */
 CREATE FUNCTION IF NOT EXISTS AdventureWorksDW.Snowconvert.ufn_CQuarterName (QUARTER_NUM BYTEINT)
-RETURNS DECIMAL(18, 2)
+RETURNS VARCHAR
 LANGUAGE SQL
 IMMUTABLE
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/10/2025",  "domain": "no-domain-provided",  "migrationid": "fMyZAY7zhne3eN7n0tsqAQ==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/12/2025",  "domain": "no-domain-provided",  "migrationid": "S9qZAbkMwHWOXryciJpCUQ==" }}'
 AS
 $$
 	CASE
