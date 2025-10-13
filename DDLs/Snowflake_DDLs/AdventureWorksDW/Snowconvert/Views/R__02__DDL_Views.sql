@@ -1,7 +1,7 @@
 ﻿--
 /* <sc-view> AdventureWorksDW.vw_FinancialRecords </sc-view> */
 CREATE VIEW IF NOT EXISTS AdventureWorksDW.Snowconvert.vw_FinancialRecords
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/13/2025",  "domain": "no-domain-provided",  "migrationid": "VdyZAVEBKHK4TJwMchJ2cA==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/13/2025",  "domain": "no-domain-provided",  "migrationid": "ttyZASEV2nCu3Jx6xTpPyw==" }}'
 AS
 SELECT
 	f.FinanceKey,
@@ -21,7 +21,7 @@ LEFT JOIN
 --
 		/* <sc-view> AdventureWorksDW.vw_ProductWithCategory </sc-view> */
 		CREATE VIEW IF NOT EXISTS AdventureWorksDW.Snowconvert.vw_ProductWithCategory
-		COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/13/2025",  "domain": "no-domain-provided",  "migrationid": "VdyZAVEBKHK4TJwMchJ2cA==" }}'
+		COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/13/2025",  "domain": "no-domain-provided",  "migrationid": "ttyZASEV2nCu3Jx6xTpPyw==" }}'
 		AS
 		SELECT
 	p.ProductKey,
@@ -42,7 +42,7 @@ ON sc.ProductCategoryKey = c.ProductCategoryKey;
 --
 		/* <sc-view> AdventureWorksDW.vw_EmployeeTerritory </sc-view> */
 		CREATE VIEW IF NOT EXISTS AdventureWorksDW.Snowconvert.vw_EmployeeTerritory
-		COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/13/2025",  "domain": "no-domain-provided",  "migrationid": "VdyZAVEBKHK4TJwMchJ2cA==" }}'
+		COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/13/2025",  "domain": "no-domain-provided",  "migrationid": "ttyZASEV2nCu3Jx6xTpPyw==" }}'
 		AS
 		SELECT
 	e.EmployeeKey,
@@ -61,7 +61,7 @@ ON e.SalesTerritoryKey = t.SalesTerritoryKey;
 --
 		/* <sc-view> AdventureWorksDW.vw_ResellerWithGeography </sc-view> */
 		CREATE VIEW IF NOT EXISTS AdventureWorksDW.Snowconvert.vw_ResellerWithGeography
-		COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/13/2025",  "domain": "no-domain-provided",  "migrationid": "VdyZAVEBKHK4TJwMchJ2cA==" }}'
+		COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/13/2025",  "domain": "no-domain-provided",  "migrationid": "ttyZASEV2nCu3Jx6xTpPyw==" }}'
 		AS
 		SELECT
 	r.ResellerKey,
