@@ -681,6 +681,21 @@ PRIMARY KEY ( OrganizationKey ))
 ;
 
 --
+/* <sc-table> AdventureWorksDW.sales </sc-table> */
+CREATE MULTISET TABLE AdventureWorksDW.sales ,FALLBACK ,
+     NO BEFORE JOURNAL,
+     NO AFTER JOURNAL,
+     CHECKSUM = DEFAULT,
+     DEFAULT MERGEBLOCKRATIO,
+     MAP = TD_MAP1
+     (
+      sale_id INTEGER,
+      product_id INTEGER,
+      amount DECIMAL(18,2),
+      sale_date DATE FORMAT 'YY/MM/DD')
+PRIMARY INDEX ( sale_id );
+
+--
 /* <sc-table> AdventureWorksDW.DimProduct </sc-table> */
 CREATE SET TABLE AdventureWorksDW.DimProduct ,FALLBACK ,
      NO BEFORE JOURNAL,
