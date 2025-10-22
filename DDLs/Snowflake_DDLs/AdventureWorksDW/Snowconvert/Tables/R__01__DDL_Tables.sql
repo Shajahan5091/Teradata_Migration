@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimSalesReason
      SalesReasonName VARCHAR(50) NOT NULL,
      SalesReasonReasonType VARCHAR(50) NOT NULL,
 PRIMARY KEY ( SalesReasonKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.Employee
      Emp_Name VARCHAR(100),
      Dept_Id SMALLINT,
      STATUS CHAR(1) DEFAULT 'A')
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimScenario
      ScenarioKey INTEGER NOT NULL,
      ScenarioName VARCHAR(50),
 PRIMARY KEY ( ScenarioKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactProductInventory
      UnitsOut INTEGER NOT NULL,
      UnitsBalance INTEGER NOT NULL,
 PRIMARY KEY ( ProductKey ,DateKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactFinance
      Amount NUMBER(38, 18) NOT NULL,
      "Date" DATE,
 PRIMARY KEY ( FinanceKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactResellerSales
      DueDate DATE,
      ShipDate DATE
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactInternetSalesReason
      SalesOrderLineNumber SMALLINT NOT NULL,
      SalesReasonKey INTEGER NOT NULL
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -149,9 +149,9 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimEmployee
      StartDate DATE,
      EndDate DATE,
      Status VARCHAR(50),
-     EmployeePhoto BINARY /*** SSC-FDM-TD0001 - COLUMN CONVERTED FROM BLOB DATA TYPE ***/,
+     EmployeePhoto BINARY,
 PRIMARY KEY ( EmployeeKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimCurrency
      CurrencyAlternateKey CHAR(3) NOT NULL,
      CurrencyName VARCHAR(50) NOT NULL,
 PRIMARY KEY ( CurrencyKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimGeography
      SalesTerritoryKey INTEGER,
      IpAddressLocator VARCHAR(15),
 PRIMARY KEY ( GeographyKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimDepartmentGroup
      ParentDepartmentGroupKey INTEGER,
      DepartmentGroupName VARCHAR(50),
 PRIMARY KEY ( DepartmentGroupKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimReseller
      AnnualRevenue NUMBER(18,4),
      YearOpened INTEGER,
 PRIMARY KEY ( ResellerKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -238,9 +238,8 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.Products_with_check
      STATUS CHAR(1) DEFAULT 'A',
      CATEGORY VARCHAR(50)
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
-
 
 --
 /* <sc-table> AdventureWorksDW.DimSalesTerritory </sc-table> */
@@ -254,7 +253,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimSalesTerritory
      SalesTerritoryGroup VARCHAR(50),
      SalesTerritoryImage BINARY /*** SSC-FDM-TD0001 - COLUMN CONVERTED FROM BLOB DATA TYPE ***/,
 PRIMARY KEY ( SalesTerritoryKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -266,7 +265,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.Products
      PRODUCT_NAME VARCHAR(255),
      CATEGORY VARCHAR(50)
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -300,7 +299,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactInternetSales
      DueDate DATE,
      ShipDate DATE
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -333,7 +332,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.ProspectiveBuyer
      Salutation VARCHAR(8),
      Unknown INTEGER,
 PRIMARY KEY ( ProspectiveBuyerKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -345,7 +344,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.Table_with_journal
      USER_ID VARCHAR(50),
      AUDIT_TIMESTAMP TIMESTAMP(6)
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -359,7 +358,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.NewFactCurrencyRate
      CurrencyKey INTEGER,
      DateKey INTEGER
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -387,7 +386,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimDate
      FiscalYear CHAR(4),
      FiscalSemester SMALLINT,
 PRIMARY KEY ( DateKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -402,7 +401,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimProductSubcategory
      FrenchProductSubcategoryName VARCHAR(50) NOT NULL,
      ProductCategoryKey INTEGER,
 PRIMARY KEY ( ProductSubcategoryKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -416,7 +415,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactCurrencyRate
      EndOfDayRate NUMBER(38, 18) NOT NULL,
      "Date" DATE,
 PRIMARY KEY ( CurrencyKey ,DateKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -430,7 +429,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimProductCategory
      SpanishProductCategoryName VARCHAR(50) NOT NULL,
      FrenchProductCategoryName VARCHAR(50) NOT NULL,
 PRIMARY KEY ( ProductCategoryKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -455,7 +454,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimPromotion
      MinQty INTEGER,
      MaxQty INTEGER,
 PRIMARY KEY ( PromotionKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -469,7 +468,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.Transactions
 )
 --     --** SSC-FDM-0038 - MICRO-PARTITIONING IS AUTOMATICALLY HANDLED ON ALL SNOWFLAKE TABLES **
 --PARTITION BY RANGE_N(Trans_Date  BETWEEN DATE '2020-01-01' AND DATE '2025-12-31' EACH INTERVAL '1' MONTH )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -488,7 +487,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimAccount
      ValueType VARCHAR(50),
      CustomMemberOptions VARCHAR(200),
 PRIMARY KEY ( AccountKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -499,7 +498,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.AdventureWorksDWBuildVer
      DBVersion VARCHAR(50),
      VersionDate TIMESTAMP(0)
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -511,7 +510,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactAdditionalInternatio
      CultureName VARCHAR(50) NOT NULL,
      ProductDescription VARCHAR(32000) NOT NULL
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -527,7 +526,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactSalesQuota
      SalesAmountQuota NUMBER(18,4) NOT NULL,
      "Date" DATE,
 PRIMARY KEY ( SalesQuotaKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -550,7 +549,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactCallCenter
      ServiceGrade NUMBER(38, 18) NOT NULL,
      "Date" DATE,
 PRIMARY KEY ( FactCallCenterID ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -567,7 +566,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.FactSurveyResponse
      EnglishProductSubcategoryName VARCHAR(50) NOT NULL,
      "Date" DATE,
 PRIMARY KEY ( SurveyResponseKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -581,7 +580,7 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimOrganization
      OrganizationName VARCHAR(50),
      CurrencyKey INTEGER,
 PRIMARY KEY ( OrganizationKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
 
 --
@@ -593,9 +592,8 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.sales
      amount DECIMAL(18, 2),
      sale_date DATE
 )
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;
-
 
 --
 /* <sc-table> AdventureWorksDW.DimProduct </sc-table> */
@@ -639,5 +637,5 @@ CREATE TABLE IF NOT EXISTS AdventureWorksDW.Snowconvert.DimProduct
      EndDate DATE,
      Status VARCHAR(7),
 PRIMARY KEY ( ProductKey ))
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 ;

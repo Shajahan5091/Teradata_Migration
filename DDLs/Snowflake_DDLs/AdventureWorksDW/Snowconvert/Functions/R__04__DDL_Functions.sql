@@ -4,7 +4,7 @@ CREATE FUNCTION IF NOT EXISTS AdventureWorksDW.Snowconvert.ufn_CalculateDiscount
 RETURNS DECIMAL(18, 2)
 LANGUAGE SQL
 IMMUTABLE
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "4QqaAcOvOHiSYM+1U/a4iw==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/22/2025",  "domain": "no-domain-provided",  "migrationid": "RQuaAfb0EHOGhOonNpKrcQ==" }}'
 AS
 $$
 amount * (1 - (discount_percent / 100))
