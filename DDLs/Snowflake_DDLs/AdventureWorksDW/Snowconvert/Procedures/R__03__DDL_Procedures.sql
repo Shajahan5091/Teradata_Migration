@@ -4,7 +4,7 @@ CREATE PROCEDURE IF NOT EXISTS AdventureWorksDW.Snowconvert.sp_GetEmployeeQuotaS
 RETURNS TABLE (
 )
 LANGUAGE SQL
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/23/2025",  "domain": "no-domain-provided",  "migrationid": "kBCaASQG9XaFqfEPnYUasQ==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/24/2025",  "domain": "no-domain-provided",  "migrationid": "2BSaAeKI/n289lxq+lu46Q==" }}'
 EXECUTE AS CALLER
 AS
 $$
@@ -36,7 +36,7 @@ CREATE PROCEDURE IF NOT EXISTS AdventureWorksDW.Snowconvert.sp_GetResellerSalesB
 RETURNS TABLE (
 )
 LANGUAGE SQL
-COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/23/2025",  "domain": "no-domain-provided",  "migrationid": "kBCaASQG9XaFqfEPnYUasQ==" }}'
+COMMENT = '{ "origin": "sf_sc", "name": "snowconvert", "version": {  "major": 1,  "minor": 19,  "patch": "5.0" }, "attributes": {  "component": "teradata",  "convertedOn": "10/24/2025",  "domain": "no-domain-provided",  "migrationid": "2BSaAeKI/n289lxq+lu46Q==" }}'
 EXECUTE AS CALLER
 AS
 $$
